@@ -1,0 +1,159 @@
+﻿
+*06                                 - Mini Manual -
+
+*02About text files
+As you may have noticed, all the scrolling windows are made of only
+one window in the script (Named Window_Scroll); and we dump text from
+a text file that we have stored in the Text folder of the project.
+
+The only draw back is that since RMXP is kind of limited and stupid about
+its encryption system... 
+(It won't encrypt any other files but the default ones.)
+So we can't encrypt our text files... At least for now we can't.
+
+*02About foreign characters (French/German, Etc)
+You can use foreign characters in this script, all you need to do
+is to save your text file as UTF-8 with Notepad. (Open Notepad;
+choose Save As, and then select UTF-8: the last option.) 
+
+Here's some example: ß ä ü ê ë
+
+The only thing to know is that you cannot use any color code in the
+first line of the text file. But a trick is to simply leave the first
+line empty (as in this text file) to use a color on your first "true"
+visible line.
+
+*02About colors
+As you see, we can specify a color for a line in the text. 
+You can define a color using 2 different code:
+
+*04LINE COLOR:
+To use it, you have to start your line with a * symbol followed by 
+the 2 digit representing your color ID.You can use the * sign 
+anywhere but not as the first character, unless you want to specify 
+a color.So if you want the line to be yellow, you use *06 as the line 
+start. Feel free to open the text file in notepad to see it. 
+
+*04MAIN COLOR:
+To use it, you have to start your line with a / symbol followed by 
+the 2 digit representing your color ID.You can use the / sign 
+anywhere but not as the first character, unless you want to specify 
+a color.So if you want the text to be yellow, you use /06 as the line 
+start. This code will make the entire text become of the color you 
+specified, without you having to add a * code in each line.
+You can still use the * code to change a line color, and the color
+will return to the one you specified with / after it's been drawn.
+You can changed the color with another / anytime, and the color of
+all line will now be of that new one. Have fun ! 
+Feel free to open the text file in notepad to see it. 
+
+*02TEXT SCROLLER Features & Syntax 
+You have many options for the text scroll features:
+
+*041- File:
+You specify from wich file to take the text from. A window will 
+then be created with the right size so the text will fit in it.
+
+*042- Scroll Window Opacity
+Every text scroll are inside a window, but to make it more like a real 
+"Text" scroll, we usually make the window transparent, but I left 
+the option to you. So you can have the opacity you desire. 
+255 is opaque, and 0 is transparent.
+
+*043- Background Window Opacity
+You can also specify a background window opacity, this window will
+be behind your text scroll, and will be 640X480 (fullscreen) to act as
+a background window; giving the feel that the text is really
+scrolling in a window. You can have the opacity you desire. 
+255 is opaque, and 0 is transparent. If you don't want to use it;
+simply use 0 as opacity. 
+
+*044- Speed:
+You can choose a scrolling speed for the text, as long as it's higher than 
+0 of course. 1 is the slowest.
+
+*045- Live Scroll ON/OFF
+The last option is the Live Scroll option. When set to 0, the player
+and every other event processing will stop. If you set it to 1, event 
+processing and the player controls will be available; meaning that 
+the player will be able to move around while the text is scrolling;
+and it also means that event processing... 
+(Parallel, Auto, and all other type) 
+will still work perfectly. Use this to create better 
+cut scene and intro story.
+
+Remember the Trick to stop/enable the control of the hero 
+with a Move Event.You do a move event "Move Toward Hero" 
+on the player itself, it then freezes.To regain control;
+use a "Face Hero" (Face Player) command on the hero again.
+Neat !
+
+*02The syntax to use:
+The syntax to call the scrolling window is the following:
+
+*06Text_Scroller.new("file",scroll_opacity,bg_opacity,speed,live_scroll)
+
+*04A sample would look like that: 
+Text_Scroller.new("Credits.rxdata", 0, 150, 2, 0)
+
+*02BOOK SCROLL Features & Syntax
+I modified the Book system to implement it completely in my script.
+you don't need ANY common event, nor any switch to use this script
+
+REMEMBER: All your pages must be only a number starting from 1.
+And the extention must be .rxdata 
+
+EXAMPLE: For a 5 pages book, the files in your book directory 
+would look like that:
+/06
+1.rxdata
+2.rxdata
+3.rxdata
+4.rxdata
+5.rxdata
+/00
+*041- Book Title
+The book title is where you specified the title of your book. It
+must be the name of the directory where you put your pages in.
+This book directory must be in the Text directory. Example:
+*06Text\My Book
+
+*042- Number of pages
+You must specify a total number of pages so the script can carry
+out everything by itself. If your page have 10 pages, you put a
+10 in there.
+
+*043- Start Page
+Here you specify on which page the book should be opened.
+Insert 1 to open page 1 as default.
+
+*044- Scroll Window Opacity
+Every text scroll are inside a window, but to make it more like a real 
+"Text" scroll, we usually make the window transparent, but I left 
+the option to you. So you can have the opacity you desire. 
+255 is opaque, and 0 is transparent.
+
+*045- Background Window Opacity
+You can also specify a background window opacity, this window will
+be behind your text scroll, and will be 640X480 (fullscreen) to act as
+a background window; giving the feel that the text is really
+scrolling in a window. You can have the opacity you desire. 
+255 is opaque, and 0 is transparent. If you don't want to use it;
+simply use 0 as opacity. 
+
+*02The syntax to use:
+The syntax to call the Book Scroll window is the following:
+
+*06Book_Scroll.new("title",pages,start,book_window,bg_window)
+
+*04A sample would look like that: 
+Book_Scroll.new("Book_Title", 11, 1, 0, 150)
+
+/06Have fun with the script, and thanks you to all of your great
+feedbacks ! And the new features included in this new release
+are there because of those feedback !
+
+See ya all !
+
+
+

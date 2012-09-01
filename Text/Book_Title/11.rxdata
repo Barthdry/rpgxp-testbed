@@ -1,0 +1,18 @@
+*06This line uses the line color *06
+/04This line uses the new color code /06 to change all
+new line to be of that color. You see, in the text file,
+we did not add any color code on those lines. 
+
+As you can see, we can use the new Main Color code
+in a book too ! That's even cooler !
+
+But you can still change the color of a single line
+using *06 and the color will stay as what you specified
+*06We want this line yellow
+but this line is still kinda blue as We told earlier.
+
+We can also change the main color again using another / code
+/02We now changed the main color to this new one...
+Have fun with that new features !!
+
+
